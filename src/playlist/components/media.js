@@ -2,11 +2,19 @@ import React, { Component } from 'react';  //importamos React desde React
 
 class Media extends Component { //Estendimos la clase componente que viene desde React 
   render() {
+    const styles = { //estilos creados como si fueran un objeto, en donde lo vallamos a utilizar simplemente lo llamamos 
+        container: { //Estilos en linea
+          color: '#44546b',
+          cursor: 'pointer',
+          width: 260,
+          border: '1px solid red'
+        }
+    }
     return ( //creamos nuestro Componente
      <div>
-        <div>
+        <div style={styles.container}>
           <img
-            src=""
+            src="./images/covers/responsive.jpg"
             alt=""
             width={260}
             height={160}
