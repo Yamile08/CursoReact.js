@@ -8,5 +8,5 @@ const app = document.getElementById('app'); // Referenciamos un elemento con ID 
 // const holaMundo = <h1>Hola yamile</h1>; // Insertamos en una constante lo que queremos renderizar
 
 //ReactDOM.render(que voy a renderizar, donde lo hare);
-render(<Media/>, app) //renderizamos media
+render(<Media title="¿Por qué aprender React?" author="Yamile Tabares" image="./images/covers/responsive.jpg"/>, app) //renderizamos media
 

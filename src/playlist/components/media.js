@@ -15,13 +15,13 @@ class Media extends Component { //Estendimos la clase componente que viene desde
      <div className="Media">
         <div>
           <img
-            src="./images/covers/responsive.jpg"
+            src={this.props.image}
             alt=""
             width={260}
             height={160}
           />
-          <h3>¿Por qué aprender React?...</h3>
-          <p>Yamile Tabares</p>
+          <h3 className="Media-title">{this.props.title}</h3>
+          <p className="Media-author">{this.props.author}</p>
         </div>
       </div>
     )
