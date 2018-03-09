@@ -3,6 +3,13 @@ import PropTypes from 'prop-types';
 import './media.css';  //estilos importados
 
 class Media extends Component { //Estendimos la clase componente que viene desde React 
+  // constructor(props) {
+  //   super(props)
+  //   this.handleClick = this.handleClick.bind(this);
+  // }
+  handleClick = (event) => {
+    console.log(this.props.image)
+  }
   render() {
     const styles = { //estilos creados como si fueran un objeto, en donde lo vallamos a utilizar simplemente lo llamamos 
         container: { //Estilos en linea
@@ -13,7 +20,7 @@ class Media extends Component { //Estendimos la clase componente que viene desde
         }
     }
     return ( //creamos nuestro Componente
-     <div className="Media">
+     <div className="Media" onClick={this.handleClick}>
         <div>
           <img
             src={this.props.image}
