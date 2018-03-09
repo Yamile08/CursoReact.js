@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';  //importamos React desde React
 import PropTypes from 'prop-types';
 import './media.css';  //estilos importados
 
-class Media extends PureComponent { //Estendimos la clase componente que viene desde React 
+class Media extends PureComponent { //PureComponent: tiene el método shouldComponentUpdate ya asignado (por defecto), si a este componente no se le actualizan las propiedades, no tenemos que validar a mano con shouldComponentUpdate
   state = {
     author: 'Yamile Tabares'
   }
