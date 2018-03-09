@@ -1,4 +1,5 @@
 import React, { Component } from 'react';  //importamos React desde React
+import PropTypes from 'prop-types';
 import './media.css';  //estilos importados
 
 class Media extends Component { //Estendimos la clase componente que viene desde React 
@@ -26,6 +27,13 @@ class Media extends Component { //Estendimos la clase componente que viene desde
       </div>
     )
   }
+}
+
+Media.propTypes = {
+  image: PropTypes.string,
+  title: PropTypes.string.isRequired, //si queremos que sea un valor requerido
+  author: PropTypes.string,
+  type: PropTypes.oneOf(['video', 'audio']),
 }
 
 export default Media; //se exporta media y en index.js se importa
