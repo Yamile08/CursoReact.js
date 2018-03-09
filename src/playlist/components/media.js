@@ -1,4 +1,5 @@
 import React, { Component } from 'react';  //importamos React desde React
+import './media.css';  //estilos importados
 
 class Media extends Component { //Estendimos la clase componente que viene desde React 
   render() {
@@ -11,8 +12,8 @@ class Media extends Component { //Estendimos la clase componente que viene desde
         }
     }
     return ( //creamos nuestro Componente
-     <div>
-        <div style={styles.container}>
+     <div className="Media">
+        <div>
           <img
             src="./images/covers/responsive.jpg"
             alt=""
