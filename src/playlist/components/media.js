@@ -3,12 +3,21 @@ import PropTypes from 'prop-types';
 import './media.css';  //estilos importados
 
 class Media extends Component { //Estendimos la clase componente que viene desde React 
-  // constructor(props) {
+  state = {
+    author: 'Yamile Tabares'
+  }
+  // constructor(props) { con ecmascript 6
   //   super(props)
-  //   this.handleClick = this.handleClick.bind(this);
+  //   this.state = {
+  //     author: props.author
+  //   }
+  // //   this.handleClick = this.handleClick.bind(this);
   // }
   handleClick = (event) => {
-    console.log(this.props.image)
+      // console.log(this.props.image)
+      this.setState({
+        author: 'Miguel Posada',
+      })
   }
   render() {
     const styles = { //estilos creados como si fueran un objeto, en donde lo vallamos a utilizar simplemente lo llamamos 
@@ -20,7 +29,7 @@ class Media extends Component { //Estendimos la clase componente que viene desde
         }
     }
     return ( //creamos nuestro Componente
-     <div className="Media" onClick={this.handleClick}>
+     <div className="Media" onClick={this.handleClick}> 
         <div>
           <img
             src={this.props.image}
@@ -29,7 +38,7 @@ class Media extends Component { //Estendimos la clase componente que viene desde
             height={160}
           />
           <h3 className="Media-title">{this.props.title}</h3>
-          <p className="Media-author">{this.props.author}</p>
+          <p className="Media-author">{this.state.author}</p>
         </div>
       </div>
     )
