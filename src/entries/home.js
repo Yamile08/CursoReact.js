@@ -3,12 +3,12 @@ import React from'react'; //React es la dependencia para crear nuestros componen
 import { render } from'react-dom';  //react-dom nos sirve para renderizar esos componentes en el navegador
 import Home from '../pages/containers/home';
 //import Playlist from './src/playlist/components/playlist'; //llamar y/o importar a media
-//import data from './src/api.json';
+import data from '../api.json';
 
 const app = document.getElementById('app'); // Referenciamos un elemento con ID app
 
 // const holaMundo = <h1>Hola yamile</h1>; // Insertamos en una constante lo que queremos renderizar
 
 //ReactDOM.render(que voy a renderizar, donde lo hare);
-render( <Home />, app);  //la propiedad data va a recibir los datos que vienen desde el api.json
+render( <Home data={data} />, app); //la propiedad data va a recibir los datos que vienen desde el api.json
 
