@@ -5,10 +5,10 @@ import Home from '../pages/containers/home';
 //import Playlist from './src/playlist/components/playlist'; //llamar y/o importar a media
 import data from '../api.json';
 
-const app = document.getElementById('app'); // Referenciamos un elemento con ID app
+const homeContainer = document.getElementById('home-container'); // Referenciamos un elemento con ID home-container
 
 // const holaMundo = <h1>Hola yamile</h1>; // Insertamos en una constante lo que queremos renderizar
 
 //ReactDOM.render(que voy a renderizar, donde lo hare);
-render( <Home data={data} />, app); //la propiedad data va a recibir los datos que vienen desde el api.json
+render( <Home data={data} />, homeContainer); //la propiedad data va a recibir los datos que vienen desde el api.json
 
