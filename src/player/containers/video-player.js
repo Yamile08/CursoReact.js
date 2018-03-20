@@ -7,6 +7,7 @@ import Timer from '../components/timer.js';
 import Controls from '../components/video-player-controls.js';
 import ProgressBar from '../components/progress-bar';
 import Spinner from '../components/spinner';
+import Volume from '../components/volume';
 
 class VideoPlayer extends Component {
   state = {
@@ -51,6 +52,9 @@ class VideoPlayer extends Component {
       loading: false //Que quite el cargando
     })
   }
+  handleVolumeChange = event => {
+    this.video.volume = event.target.value;  //al elemento video le asigno el valor del volumen 
+  }
   render() {
     return (
       <VideoPlayerLayout>
@@ -70,6 +74,9 @@ class VideoPlayer extends Component {
             duration={this.state.duration}  //duracion del video, se le pasa al progress-bar como la duracion maxima 
             value={this.state.currentTime}  //se le pasa el valor por defecto a la progress-bar , en tiempo real del video ,aqui ya se maneja el valor del elemento
             handleProgressChange={this.handleProgressChange}  //cambiando el tiempo transcurrido del video, ir hacia adelate o atrasar el elemento video
+          />
+          <Volume
+            handleVolumeChange={this.handleVolumeChange}
           />
         </Controls>
         <Spinner
