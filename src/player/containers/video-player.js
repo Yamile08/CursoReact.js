@@ -5,6 +5,7 @@ import Title from '../components/title';
 import PlayPause from '../components/play-pause';
 import Timer from '../components/timer.js';
 import Controls from '../components/video-player-controls.js';
+import ProgressBar from '../components/progress-bar';
 
 class VideoPlayer extends Component {
   state = {
@@ -25,14 +26,18 @@ class VideoPlayer extends Component {
   handleLoadedMetadata = event => {
     this.video = event.target;
     this.setState({
-      duration: this.video.duration
+      duration: this.video.duration //tiempo total del video
     });
   }
   handleTimeUpdate = event => {
     // console.log(this.video.currentTime)
     this.setState({
-      currentTime: this.video.currentTime
+      currentTime: this.video.currentTime //tiempo transcurrido del video
     })
+  }
+  handleProgressChange = event => {  //cambiar el value , es decir el tiempo en el que transcurre el video
+    // event.target.value
+    this.video.currentTime = event.target.value  //se le setea un nuevo tiempo al elemento video
   }
   render() {
     return (
@@ -48,6 +53,11 @@ class VideoPlayer extends Component {
           <Timer
             duration={this.state.duration}
             currentTime={this.state.currentTime}
+          />
+          <ProgressBar
+            duration={this.state.duration}  //duracion del video, se le pasa al progress-bar como la duracion maxima 
+            value={this.state.currentTime}  //se le pasa el valor por defecto a la progress-bar , en tiempo real del video ,aqui ya se maneja el valor del elemento
+            handleProgressChange={this.handleProgressChange}  //cambiando el tiempo transcurrido del video, ir hacia adelate o atrasar el elemento video
           />
         </Controls>
         <Video
