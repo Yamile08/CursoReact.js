@@ -8,6 +8,7 @@ import Controls from '../components/video-player-controls.js';
 import ProgressBar from '../components/progress-bar';
 import Spinner from '../components/spinner';
 import Volume from '../components/volume';
+import FullScreen from '../components/full-screen';
 
 class VideoPlayer extends Component {
   state = {
@@ -55,9 +56,23 @@ class VideoPlayer extends Component {
   handleVolumeChange = event => {
     this.video.volume = event.target.value;  //al elemento video le asigno el valor del volumen 
   }
+  handleFullScreenClick = event => {
+    if (!document.webkitIsFullScreen) {  //le preguntamos al navegador si esta en full screen
+      // mando a full screen
+      this.player.webkitRequestFullscreen()
+    } else {
+      document.webkitExitFullscreen();
+      // salgo del full screen
+    }
+  }
+  setRef = element => {
+    this.player = element
+  }
   render() {
     return (
-      <VideoPlayerLayout>
+      <VideoPlayerLayout
+      setRef={this.setRef}  //setiar el ref
+      >
         <Title
           title="Esto es un video chido!"
         />
@@ -77,6 +92,9 @@ class VideoPlayer extends Component {
           />
           <Volume
             handleVolumeChange={this.handleVolumeChange}
+          />
+          <FullScreen
+            handleFullScreenClick={this.handleFullScreenClick}
           />
         </Controls>
         <Spinner
