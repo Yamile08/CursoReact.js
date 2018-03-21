@@ -13,12 +13,13 @@ class Media extends PureComponent { //PureComponent: tiene el método shouldComp
   //   }
   // //   this.handleClick = this.handleClick.bind(this);
   // }
-  //handleClick = (event) => {
+  handleClick = (event) => {
       // console.log(this.props.image)
       //csthis.setState({
         //author: 'Miguel Posada',
       //})
- // }
+      this.props.openModal(this.props);
+  }
   render() {
     const styles = { //estilos creados como si fueran un objeto, en donde lo vallamos a utilizar simplemente lo llamamos 
         container: { //Estilos en linea
@@ -29,7 +30,7 @@ class Media extends PureComponent { //PureComponent: tiene el método shouldComp
         }
     }
     return ( //creamos nuestro Componente
-     <div className="Media" onClick={this.props.handleClick}> 
+     <div className="Media" onClick={this.handleClick}> 
         <div>
           <img
             src={this.props.cover}
